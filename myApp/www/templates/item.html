@@ -1,0 +1,29 @@
+<ion-view view-title="Clairvoyance">
+    <ion-nav-buttons side="left">
+        <a class="button button-clear ion-chevron-left" ng-click="$ionicGoBack($event)"></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="{{ thumbnailUrl }}">
+                <h2>{{ title }}</h2>
+                
+            </div>
+            <div class="item item-image" style="padding: 30px 0px">
+                <iframe width="100%" height="150px" src="" frameborder="0" id="youtubeIFrameItem" allowfullscreen></iframe>
+            </div>
+            <a class="item item-icon-left assertive" href="#" style="border-bottom: 1ps solid white;">
+                <i class="icon ion-transgender"></i> Gender
+                <a href="#" class="item item-icon-left" ng-repeat="gender in genderItems">
+                    <i class="icon {{ gender.icon }}"></i> {{ gender.label }}
+                </a>
+            </a>
+            <a class="item item-icon-left assertive" href="#" style="border-bottom: 1ps solid white;">
+                <i class="icon ion-location"></i> Gender
+                <a href="#" class="item item-icon-left" ng-repeat="location in locations">
+                    <i class="icon {{ location.icon }}"></i> {{ location.label }}
+                </a>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

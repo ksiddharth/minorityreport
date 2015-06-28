@@ -1,0 +1,40 @@
+<ion-view view-title="Clairvoyance">
+    <ion-nav-buttons side="left">
+        <a class="button button-light button-outline icon ion-navicon" ng-click="toggleLeftMenu()"></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button button-light button-outline icon ion-plus" ui-sref="add_item"></a>
+    </ion-nav-buttons>
+    <ion-side-menus>
+        
+        <ion-side-menu-content>
+            <ion-content>
+                <div class="list card" ng-show="entries.length > 0">
+                    <a ng-repeat="entry in entries" class="item item-thumbnail-left" href="#" ng-click="loadEntry('{{ entry.id }}')">
+                        <img src="{{ entry.thumbnailUrl }}">
+                        <h2 style="background: #f1f1f1; padding: 5px 10px; border-bottom: 1px solid #11c1f3">{{ entry.title }}</h2>
+                        <div ng-repeat="value in entry.locations track by $index">
+                            <i style="font-size: 20px; margin-right:  10px; margin-top: 20px;" class="icon {{ value.icon }}"></i>{{ value.label }} 
+                        </div>
+                    </a>
+                </div>
+
+                <div class="list card padding" ng-show="entries.length == 0" >
+                	<i style="font-size: 30px;" class="icon ion-nuclear padding ion-assertive"></i>No videos have been added yet
+                </div>
+            </ion-content>
+        </ion-side-menu-content>
+        <ion-side-menu side="left">
+            <ion-header-bar class="bar-assertive">
+                <h1 class="title">Left Menu</h1>
+            </ion-header-bar>
+            <ion-content>
+                <div class="list">
+                    <a ng-repeat="location in locations" class="item item-icon-left" href="#" ng-click="loadCategory({{location.id}})">
+                        <i class="icon {{ location.icon }}"></i> {{ location.label }}
+                    </a>
+                </div>
+            </ion-content>
+        </ion-side-menu>
+    </ion-side-menus>
+</ion-view>

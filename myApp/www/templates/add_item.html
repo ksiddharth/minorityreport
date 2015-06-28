@@ -1,0 +1,64 @@
+<ion-view view-title="Add Video">
+    <ion-nav-buttons side="left">
+        <a class="button button-clear ion-chevron-left" ng-click="$ionicGoBack($event)"></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list card">
+            <label class="item item-input">
+                <input type="text" placeholder="Youtube URL" ng-model="item.url" ng-blur="getThumbnail(item.url)" />
+            </label>
+            <iframe width="100%" height="150px" src="" frameborder="0" id="youtubeIFrame" allowfullscreen></iframe>
+            <label class="item item-input">
+                <input type="text" placeholder="Title" ng-model="item.title" />
+            </label>
+            <div class="item range range-positive">
+                <span class="range-label range-label-mod" style="padding-left: 0px">Min Age&nbsp;&nbsp;: {{ item.minAge }}</span>
+                <i class="icon ion-ios-person-outline"></i>
+                <input type="range" name="volume" min="0" max="100" ng-model="item.minAge">
+                <i class="icon ion-ios-person"></i>
+            </div>
+            <div class="item range range-positive rotate">
+                <i class="icon ion-ios-person-outline"></i>
+                <input type="range" name="volume" min="0" max="100" ng-model="item.maxAge">
+                <i class="icon ion-ios-person"></i>
+                <span class="range-label rotate range-label-mod">Max Age : {{ 100 - item.maxAge }}</span>
+            </div>
+            <div ng-show="item.minAge > (100 - item.maxAge)">Error</div>
+            <div class="item item-noside-padding">
+                <h3 class="item-heading"> <i class="icon ion-ios-person"></i> Gender </h3>
+                <ul class="list check-list">
+                    <li ng-repeat="gender in genderItems" class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" value="{{ gender.value }}" ng-model="gender.checked" ng-checked="gender.checked">
+                        </label>
+                        {{ gender.label }}
+                    </li>
+                </ul>
+                <!-- <div class="item">
+                    <pre ng-bind="genderItems | json"></pre>
+                </div> -->
+                
+            </div>
+            <div class="item item-noside-padding">
+                <h3 class="item-heading"> <i class="icon ion-ios-person"></i> Location </h3>
+                <div class="list">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Location
+                        </div>
+                        <select ng-model="locationSelect" ng-change="addLocation(locationSelect)">
+                            <option value="">Select location</option>
+                            <option ng-repeat="location in locations" value="{{location.id}}">{{ location.label }}</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="list card">
+                <a ng-repeat="location in item.locations" href="#" class="item item-icon-left">
+                    <i class="icon {{location.icon}}"></i> {{ location.label }}
+                </a>
+            </div>
+        </div>
+        <button type="button" class="button button-calm button-block button-outline" ng-click="addItem()">Add Video</button>
+    </ion-content>
+</ion-view>

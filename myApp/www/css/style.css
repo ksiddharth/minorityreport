@@ -1,0 +1,47 @@
+/* Empty. Add your own CSS if you like */
+
+
+.add-button {
+	position: absolute;
+	bottom: 0px !important;
+	right: 10px !important;
+	z-index: 1000 !important;
+}
+
+.item {
+	font-size: 14px;
+}
+
+.card-image {
+	width: 250px;
+	height: 150px;
+	margin: 10px 0px;
+}
+
+.rotate {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.range-label-mod {
+	width: 100px;
+	font-size: 12px;
+}
+
+.item-noside-padding {
+	padding: 0px;
+}
+
+/*.checklist-item .item-checkbox:first-child {
+	border-top: 1px solid #ddd;
+}*/
+
+.item-heading {
+	margin: 10px 20px 0px !important;
+}
+
+ .popup-body {
+    text-align: center;
+}
