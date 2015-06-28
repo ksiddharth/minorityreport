@@ -197,8 +197,7 @@ public class CameraActivity extends YouTubeFailureRecoveryActivity implements Yo
 	 */
 	private class PostImage extends AsyncTask<String, Integer, Double> {
 
-		//private static final String URL_UK = "http://ads.eu-gb.mybluemix.net/alchemy/processImage";
-		private static final String URL_US = "http://ads.mybluemix.net/alchemy/processImage";
+		private static final String URL_US = "http://advertisement-delivery-system.mybluemix.net/alchemy/processImage";
 
 		private String videoID;
 
